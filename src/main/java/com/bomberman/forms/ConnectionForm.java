@@ -2,28 +2,34 @@ package com.bomberman.forms;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.bomberman.beans.User;
+import com.bomberman.dao.UserDao;
+
 public class ConnectionForm {
 	
 	private String res;
 	private boolean isOk;
+	private User user;
 	
+
 	public ConnectionForm() {
 		this.isOk = false;
 	}
 	
-	public void verifyId(HttpServletRequest req) {
+	public User verifyId(HttpServletRequest req, UserDao userDao) {
 		
 		String login = req.getParameter("login");
 		String password = req.getParameter("password");
 		
-		//Pour tester ça va changer
+		User user = new User();
 		
-		if(password.equals("aze")) {
-			res = "Connexion ok !";
-			isOk = true;
+		user.setLogin(login);
+		user.setPassword(password);
+		
+		if(userDao.connexion(user)) {
+			return userDao.getInfo(user);
 		} else {
-			res = "Connexion échouée, identifiants incorrects !";
-			isOk = false;
+			return null;
 		}
 		
 	}
@@ -42,6 +48,13 @@ public class ConnectionForm {
 
 	public void setRes(String res) {
 		this.res = res;
+	}
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 

@@ -49,6 +49,15 @@ version="3.0">
     <url-pattern>/serverlist</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>SignUp</servlet-name>
+    <servlet-class>com.bomberman.servlets.SignUp</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignUp</servlet-name>
+    <url-pattern>/signup</url-pattern>
+  </servlet-mapping>
+  
   <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>

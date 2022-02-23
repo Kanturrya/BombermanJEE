@@ -2,16 +2,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Connexion</title>
+<title>Sign Up</title>
 </head>
 <body>
 	<%@ include file="menu.jsp" %>
-	<p>Connexion</p>
-	<p><c:out value="${ status }"/></p>
+	<p>Sign Up</p>
+	
 	<form method="post" action="">
 	
 		<p>
-			<label for="login">Login:</label>
+			<label for="login">Login(Used for the connection !):</label>
+			<input type="text" name="login" id="login"/>
+		</p>
+		
+		<p>
+			<label for="pseudo">Pseudo:</label>
 			<input type="text" name="login" id="login"/>
 		</p>
 		
@@ -23,7 +28,7 @@
 		<input type="submit"/>
 	</form>
 	
-	<p> <a href="/BombermanJEE/signup">Sign Up</a> </p>
+	<p> <a href="/BombermanJEE/connexion">Connexion</a> </p>
 	
 </body>
 </html>

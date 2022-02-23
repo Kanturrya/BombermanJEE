@@ -8,21 +8,35 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.bomberman.beans.User;
+import com.bomberman.dao.DaoFactory;
+import com.bomberman.dao.UserDao;
+import com.bomberman.dao.UserDaoImp;
 import com.bomberman.forms.ConnectionForm;
 
 
 @WebServlet("/Connexion")
 public class Connexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private UserDao userDao;
 
     public Connexion() {
         super();
-        // TODO Auto-generated constructor stub
+    }
+    
+    public void init() throws ServletException{
+    	DaoFactory daoFactory = DaoFactory.getInstance();
+    	this.userDao = daoFactory.getUserDao();
     }
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if (request.getParameter("logout") != null) {  
+		    request.getSession().invalidate();
+		    response.sendRedirect("connexion");
+		    System.out.println("DECO");
+		    return; // <--- Here.
+		}
 		this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
 	}
 
@@ -30,13 +44,16 @@ public class Connexion extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ConnectionForm form = new ConnectionForm();
 		
-		form.verifyId(request);
-		
-		if(form.isOk() == false) {
-			request.setAttribute("form", form);
+		User user = form.verifyId(request, userDao);
+			
+		if(user == null) {
+			HttpSession session = request.getSession();
+			request.setAttribute("status", "Connexion échouée!");
+			request.setAttribute("user", user);		
 			this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
 		} else {
-			request.setAttribute("form", form);
+			HttpSession session = request.getSession();
+            session.setAttribute("user", user);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
 		}
 		

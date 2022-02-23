@@ -9,7 +9,7 @@
 	<%@ include file="menu.jsp" %>
 	<p>Accueil</p>
 	
-	<c:if test="${ !empty user.login }"><p><c:out value="Hello ${ user.login }"/></p></c:if>
+	<c:if test="${ !empty user.login }"><p><c:out value="Hello ${ user.login }, ${ user.pseudo }"/></p></c:if>
 	
 </body>
 </html>
