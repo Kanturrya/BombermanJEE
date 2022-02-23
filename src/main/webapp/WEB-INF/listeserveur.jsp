@@ -7,6 +7,7 @@
 <title>Serveurs</title>
 </head>
 <body>
+	<%@ include file="menu.jsp" %>
 	<p>Serveurs</p>
 </body>
 </html>

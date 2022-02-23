@@ -7,6 +7,7 @@
 <title>Classement</title>
 </head>
 <body>
+	<%@ include file="menu.jsp" %>
 	<p>Classement</p>
 </body>
 </html>

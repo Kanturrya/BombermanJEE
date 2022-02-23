@@ -7,6 +7,7 @@
 <title>Votre profil</title>
 </head>
 <body>
+	<%@ include file="menu.jsp" %>
 	<p>Profil</p>
 </body>
 </html>

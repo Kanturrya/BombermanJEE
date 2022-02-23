@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +5,11 @@
 <title>Bomberman Accueil</title>
 </head>
 <body>
+	
+	<%@ include file="menu.jsp" %>
 	<p>Accueil</p>
+	
+	<c:if test="${ !empty form.res }"><p><c:out value="${ form.res }"/></p></c:if>
+	
 </body>
 </html>

@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bomberman.forms.ConnectionForm;
+
 
 @WebServlet("/Connexion")
 public class Connexion extends HttpServlet {
@@ -25,7 +27,18 @@ public class Connexion extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		ConnectionForm form = new ConnectionForm();
+		
+		form.verifyId(request);
+		
+		if(form.isOk() == false) {
+			request.setAttribute("form", form);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
+		} else {
+			request.setAttribute("form", form);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
+		}
+		
 	}
 
 }
