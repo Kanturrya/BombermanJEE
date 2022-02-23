@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bomberman.bdd.DatabaseReq;
+
 /**
  * Servlet implementation class Accueil
  */
@@ -22,6 +24,11 @@ public class Accueil extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		DatabaseReq dbreq = new DatabaseReq();
+		
+		request.setAttribute("user", dbreq.getUserInfo());
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
 	}
 
