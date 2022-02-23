@@ -7,23 +7,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/Connexion")
-public class Connexion extends HttpServlet {
+/**
+ * Servlet implementation class Classement
+ */
+@WebServlet("/Classement")
+public class Classement extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
-    public Connexion() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Classement() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/classement.jsp").forward(request, response);
 	}
 
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	}

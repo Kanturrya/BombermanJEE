@@ -6,10 +6,50 @@ version="3.0">
 
   <servlet>
     <servlet-name>Accueil</servlet-name>
-    <servlet-class>com.octest.servlets.Accueil</servlet-class>
+    <servlet-class>com.bomberman.servlets.Accueil</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Accueil</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Connexion</servlet-name>
+    <servlet-class>com.bomberman.servlets.Connexion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Connexion</servlet-name>
+    <url-pattern>/connexion</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Profil</servlet-name>
+    <servlet-class>com.bomberman.servlets.Profil</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Profil</servlet-name>
+    <url-pattern>/profil</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Classement</servlet-name>
+    <servlet-class>com.bomberman.servlets.Classement</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Classement</servlet-name>
+    <url-pattern>/classement</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ListeServeur</servlet-name>
+    <servlet-class>com.bomberman.servlets.ListeServeur</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListeServeur</servlet-name>
+    <url-pattern>/serverlist</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
 </web-app>
