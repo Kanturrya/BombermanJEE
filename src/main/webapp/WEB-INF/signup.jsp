@@ -17,7 +17,7 @@
 		
 		<p>
 			<label for="pseudo">Pseudo:</label>
-			<input type="text" name="login" id="login"/>
+			<input type="text" name="pseudo" id="pseudo"/>
 		</p>
 		
 		<p>

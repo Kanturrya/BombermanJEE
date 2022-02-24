@@ -34,7 +34,6 @@ public class Connexion extends HttpServlet {
 		if (request.getParameter("logout") != null) {  
 		    request.getSession().invalidate();
 		    response.sendRedirect("connexion");
-		    System.out.println("DECO");
 		    return; // <--- Here.
 		}
 		this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
