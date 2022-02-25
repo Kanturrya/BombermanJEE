@@ -1,11 +1,5 @@
-package com.bomberman.forms;
+package com.bomberman.servlets;
 
-import java.security.SecureRandom;
-import java.security.spec.KeySpec;
-import java.util.Base64;
-
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
 import javax.servlet.http.HttpServletRequest;
 
 import com.bomberman.beans.User;
@@ -23,11 +17,9 @@ public class ConnectionForm {
 	}
 	
 	public User verifyId(HttpServletRequest req, UserDao userDao) {
-		
 		String login = req.getParameter("login");
 		String password = req.getParameter("password");
 		
-		checkPass(password);
 		User user = new User();
 		
 		user.setLogin(login);
@@ -39,25 +31,6 @@ public class ConnectionForm {
 			return null;
 		}
 		
-	}
-	
-	private void checkPass(String pass) {
-		SecureRandom random = new SecureRandom();
-		byte[] salt = new byte[16];
-		random.nextBytes(salt);
-		
-		KeySpec spec = new PBEKeySpec(pass.toCharArray(), salt, 65536, 128);
-		try {
-			SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-			byte[] hash = factory.generateSecret(spec).getEncoded();
-			Base64.Encoder enc = Base64.getEncoder();
-			System.out.printf("salt: %s%n", enc.encodeToString(salt));
-			System.out.printf("hash: %s%n", enc.encodeToString(hash));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-
 	}
 
 	public boolean isOk() {

@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.bomberman.beans.User;
+import com.bomberman.security.Hashing;
 
 public class UserDaoImp implements UserDao {
 	
@@ -59,19 +60,20 @@ public class UserDaoImp implements UserDao {
 		PreparedStatement preparedStatement = null;
 	
 		try {
-			
 			connexion = daoFactory.getConnection();
-			preparedStatement = connexion.prepareStatement("SELECT * FROM Player WHERE login = ? AND password = ?");
+			preparedStatement = connexion.prepareStatement("SELECT * FROM Player WHERE login = ?");
 			preparedStatement.setString(1, user.getLogin());
-            preparedStatement.setString(2, user.getPassword());
 			
             rs = preparedStatement.executeQuery();
-            status = rs.next();
-            
+            while(rs.next()) {
+	            String passDB = rs.getString("password");
+				return Hashing.check(passDB, user.getPassword());  
+            }
+			
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return status;
+		return false;
 	}
 
 	@Override

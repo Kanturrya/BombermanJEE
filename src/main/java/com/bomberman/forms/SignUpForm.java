@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.bomberman.beans.User;
 import com.bomberman.dao.UserDao;
+import com.bomberman.security.Hashing;
 
 public class SignUpForm {
 
@@ -18,6 +19,7 @@ public class SignUpForm {
 			String pseudo = req.getParameter("pseudo");
 			String login = req.getParameter("login");
 			String password = req.getParameter("password");
+			password = Hashing.hash(password);
 			
 			User user = new User();
 			

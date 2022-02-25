@@ -12,7 +12,6 @@ import com.bomberman.beans.User;
 import com.bomberman.dao.DaoFactory;
 import com.bomberman.dao.UserDao;
 import com.bomberman.dao.UserDaoImp;
-import com.bomberman.forms.ConnectionForm;
 
 
 @WebServlet("/Connexion")
