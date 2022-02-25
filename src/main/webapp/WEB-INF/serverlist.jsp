@@ -2,12 +2,13 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Serveurs</title>
-</head>
-<body>
-	<%@ include file="menu.jsp" %>
-	<p>Serveurs</p>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Bomberman | Serveurs</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<%@ include file="menu.jsp" %>
+		<p>Serveurs</p>
+	</body>
 </html>

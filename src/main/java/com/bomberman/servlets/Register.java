@@ -16,8 +16,8 @@ import com.bomberman.forms.SignUpForm;
 /**
  * Servlet implementation class SignUp
  */
-@WebServlet("/SignUp")
-public class SignUp extends HttpServlet {
+@WebServlet("/Register")
+public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserDao userDao;
 	
@@ -26,7 +26,7 @@ public class SignUp extends HttpServlet {
     	this.userDao = daoFactory.getUserDao();
     }
        
-    public SignUp() {
+    public Register() {
         super();
     }
 

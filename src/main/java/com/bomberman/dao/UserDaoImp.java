@@ -21,13 +21,11 @@ public class UserDaoImp implements UserDao {
 	
 	@Override
 	public User getInfo(User user) {
-		
 		Connection connexion = null;
 		ResultSet rs = null;
 		PreparedStatement preparedStatement = null;
 	
 		try {
-			
 			connexion = daoFactory.getConnection();
 			preparedStatement = connexion.prepareStatement("SELECT * FROM Player WHERE login = ? AND password = ?");
 			preparedStatement.setString(1, user.getLogin());
@@ -52,7 +50,6 @@ public class UserDaoImp implements UserDao {
 
 	@Override
 	public boolean connexion(User user) {
-		
 		boolean status = false;
 		
 		Connection connexion = null;

@@ -2,12 +2,13 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Votre profil</title>
-</head>
-<body>
-	<%@ include file="menu.jsp" %>
-	<p>Profil</p>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Bomberman | Votre profil</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<%@ include file="menu.jsp" %>
+		<p>Profil</p>
+	</body>
 </html>

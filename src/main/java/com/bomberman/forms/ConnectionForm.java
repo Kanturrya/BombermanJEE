@@ -1,4 +1,4 @@
-package com.bomberman.servlets;
+package com.bomberman.forms;
 
 import javax.servlet.http.HttpServletRequest;
 

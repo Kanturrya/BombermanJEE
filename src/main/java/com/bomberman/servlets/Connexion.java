@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import com.bomberman.beans.User;
 import com.bomberman.dao.DaoFactory;
 import com.bomberman.dao.UserDao;
-import com.bomberman.dao.UserDaoImp;
+import com.bomberman.forms.ConnectionForm;
 
 
 @WebServlet("/Connexion")
@@ -30,11 +30,6 @@ public class Connexion extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (request.getParameter("logout") != null) {  
-		    request.getSession().invalidate();
-		    response.sendRedirect("connexion");
-		    return; // <--- Here.
-		}
 		this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
 	}
 

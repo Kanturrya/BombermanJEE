@@ -1,29 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Menu</title>
-</head>
-<body>
+<div class="menu--container">
+	<a href="/BombermanJEE/index">Accueil</a>
+	<a href="/BombermanJEE/classement">Classement</a>
+	<a href="/BombermanJEE/serverlist">Serveurs</a>
+	<c:if test="${ !empty sessionScope }">
+		<a href="/BombermanJEE/profil">Profil</a>
+		<a href="/BombermanJEE/logout">Se déconnecter</a>
+	</c:if>
+	<c:if test="${ empty sessionScope }">
+		<a href="/BombermanJEE/connexion">Connexion</a>
+		<a href="/BombermanJEE/register">S'enregistrer</a>
+	</c:if>
+</div>
 
-	<c:if test="${ !empty sessionScope }">
-		<p>Bonjour ${ sessionScope.user.pseudo }</p>
-	</c:if>
-	
-	<ul>
-		<li><a href="/BombermanJEE/">Accueil</a></li>
-		<li><a href="/BombermanJEE/profil">Profil</a></li>
-		<li><a href="/BombermanJEE/connexion">Connexion</a></li>
-		<li><a href="/BombermanJEE/classement">Classement</a></li>
-		<li><a href="/BombermanJEE/serverlist">Liste Serveurs</a></li>
-		<li><a href="/BombermanJEE/signup">Sign Up</a></li>
-	</ul>
-	
-	<c:if test="${ !empty sessionScope }">
-		<form method="get" action="connexion">
-			<input type="submit" name="logout" id="logout" value="LogOut"/>
-		</form>
-	</c:if>
-	
-</body>
-</html>

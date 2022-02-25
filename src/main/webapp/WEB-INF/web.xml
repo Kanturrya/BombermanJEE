@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xmlns="http://JAVA.sun.com/xml/ns/javaee" 
-xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
-version="3.0">
+		xmlns="http://JAVA.sun.com/xml/ns/javaee" 
+		xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+		version="3.0">
 
   <servlet>
     <servlet-name>Accueil</servlet-name>
@@ -10,7 +10,7 @@ version="3.0">
   </servlet>
   <servlet-mapping>
     <servlet-name>Accueil</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/index</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -41,22 +41,36 @@ version="3.0">
   </servlet-mapping>
   
   <servlet>
-    <servlet-name>ListeServeur</servlet-name>
-    <servlet-class>com.bomberman.servlets.ListeServeur</servlet-class>
+    <servlet-name>Serverlist</servlet-name>
+    <servlet-class>com.bomberman.servlets.Serverlist</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ListeServeur</servlet-name>
+    <servlet-name>Serverlist</servlet-name>
     <url-pattern>/serverlist</url-pattern>
   </servlet-mapping>
   
   <servlet>
-    <servlet-name>SignUp</servlet-name>
-    <servlet-class>com.bomberman.servlets.SignUp</servlet-class>
+    <servlet-name>Register</servlet-name>
+    <servlet-class>com.bomberman.servlets.Register</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>SignUp</servlet-name>
-    <url-pattern>/signup</url-pattern>
+    <servlet-name>Register</servlet-name>
+    <url-pattern>/register</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>com.bomberman.servlets.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  
+  <mime-mapping>        
+  		<extension>css</extension>
+        <mime-type>text/css</mime-type>
+   </mime-mapping>
   
   <jsp-config>
         <jsp-property-group>
@@ -64,7 +78,4 @@ version="3.0">
             <include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
         </jsp-property-group>
   </jsp-config>
-  
-  
-
 </web-app>
