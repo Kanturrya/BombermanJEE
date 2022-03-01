@@ -32,12 +32,12 @@
   </servlet-mapping>
   
   <servlet>
-    <servlet-name>Classement</servlet-name>
-    <servlet-class>com.bomberman.servlets.Classement</servlet-class>
+    <servlet-name>Ranking</servlet-name>
+    <servlet-class>com.bomberman.servlets.Ranking</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Classement</servlet-name>
-    <url-pattern>/classement</url-pattern>
+    <servlet-name>Ranking</servlet-name>
+    <url-pattern>/ranking</url-pattern>
   </servlet-mapping>
   
   <servlet>

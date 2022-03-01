@@ -7,12 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bomberman.dao.DaoFactory;
+import com.bomberman.dao.GameDao;
+import com.bomberman.dao.UserDao;
+
 /**
- * Servlet implementation class Classement
+ * Servlet implementation class Ranking
  */
-@WebServlet("/Classement")
+@WebServlet("/Ranking")
 public class Ranking extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private GameDao gameDao;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -22,8 +27,13 @@ public class Ranking extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    public void init() throws ServletException{
+    	DaoFactory daoFactory = DaoFactory.getInstance();
+    	this.gameDao = daoFactory.getGameDao();
+    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println(gameDao.getRanking());
 		this.getServletContext().getRequestDispatcher("/WEB-INF/classement.jsp").forward(request, response);
 	}
 

@@ -1,6 +1,6 @@
 <div class="menu--container">
 	<a href="/BombermanJEE/index">Accueil</a>
-	<a href="/BombermanJEE/classement">Classement</a>
+	<a href="/BombermanJEE/ranking">Classement</a>
 	<a href="/BombermanJEE/serverlist">Serveurs</a>
 	<c:if test="${ !empty sessionScope }">
 		<a href="/BombermanJEE/profil">Profil</a>

@@ -11,7 +11,6 @@ public class ConnectionForm {
 	private boolean isOk;
 	private User user;
 	
-
 	public ConnectionForm() {
 		this.isOk = false;
 	}
