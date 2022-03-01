@@ -10,5 +10,9 @@
 	<body>
 		<%@ include file="menu.jsp" %>
 		<p>Serveurs</p>
+		
+		<c:forEach items="${ servers }" var="server">
+			<p><c:out value="${ server.ip }"/> </p>
+		</c:forEach>
 	</body>
 </html>

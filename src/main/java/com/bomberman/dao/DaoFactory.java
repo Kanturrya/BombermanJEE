@@ -23,7 +23,7 @@ public class DaoFactory {
 			
 		}
 		
-		DaoFactory instance = new DaoFactory("jdbc:mariadb://localhost:3306/Bomberman", "etud", "root");
+		DaoFactory instance = new DaoFactory("jdbc:mariadb://localhost:3306/Bomberman", "etud", "");
 		
 		return instance;
 	}
@@ -34,5 +34,9 @@ public class DaoFactory {
 	
 	public UserDao getUserDao(){
 		return new UserDaoImp(this);
+	}
+	
+	public ServerDao getServerDao(){
+		return new ServerDaoImp(this);
 	}
 }

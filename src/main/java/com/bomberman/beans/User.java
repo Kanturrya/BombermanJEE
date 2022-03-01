@@ -1,12 +1,9 @@
 package com.bomberman.beans;
 
 public class User {
-
-	
 	private String login;
 	private String password;
 	private String pseudo;
-	
 	
 	public String getLogin() {
 		return login;
