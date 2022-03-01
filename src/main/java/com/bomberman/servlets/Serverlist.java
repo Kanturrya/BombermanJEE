@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bomberman.dao.DaoFactory;
+import com.bomberman.dao.ServerDao;
+
 /**
  * Servlet implementation class ListeServeur
  */
@@ -14,22 +17,27 @@ import javax.servlet.http.HttpServletResponse;
 public class Serverlist extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+    private ServerDao serverDao;
+    
     public Serverlist() {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    public void init() throws ServletException{
+    	DaoFactory daoFactory = DaoFactory.getInstance();
+    	this.serverDao = daoFactory.getServerDao();
+    }
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("servers", serverDao.serverList());
 		this.getServletContext().getRequestDispatcher("/WEB-INF/serverlist.jsp").forward(request, response);
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 	}
 
 }
