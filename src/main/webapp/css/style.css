@@ -57,31 +57,32 @@ body{
 	font-size: 1.5em;
 }
 
-/* PAGE CLASSEMENT */
+/* PAGE CLASSEMENT & SERVEURS */
 
-.ranking--container{
+.table--container{
 	display:flex;
 	width:100%;
 	justify-content: center;
 	margin: 20px 0;
 }
 
-.ranking--table{
+.table{
 	width:50%;
+	table-layout: fixed;
 	border-collapse: collapse;
 }
 
-.ranking--table td, .ranking--table th {
-	width:50%;
+.table td, .table th {
 	border:1px solid black;
 	padding: 10px;
 }
 
-.ranking--table th{
+.table th{
 	background-color: #91f086;
 }
 
-/* PAGE CONNEXION */
+/* PAGE CONNEXION & INSCRIPTION*/
+
 .form--container{
 	display:flex;
 	flex-direction: column;

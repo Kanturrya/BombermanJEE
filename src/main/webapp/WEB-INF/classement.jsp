@@ -13,8 +13,8 @@
 		<div class="main">
 			<h1>Classement des joueurs</h1>
 			
-			<div class="ranking--container">
-				<table class="ranking--table">
+			<div class="table--container">
+				<table class="table">
 					<tr>
 						<th>Pseudo</th>	<th>Nombre de parties gagnées</th>
 					</tr>

@@ -13,9 +13,20 @@
 		<div class="main">
 			<h1>Serveurs</h1>
 			
-			<c:forEach items="${ servers }" var="server">
-				<p><c:out value="${ server.ip }"/> </p>
-			</c:forEach>
+			<div class="table--container">
+				<table class="table">
+					<tr>
+						<th>ID</th>	<th>IP</th> <th> Port </th>
+					</tr>
+					<c:forEach items="${ servers }" var="server">
+						<tr>
+							<td><c:out value="${ server.id }"/></td>
+							<td><c:out value="${ server.ip}"/></td>
+							<td><c:out value="${ server.port }"/></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
 		</div>
 	</body>
 </html>
