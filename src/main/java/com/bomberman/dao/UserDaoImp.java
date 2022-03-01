@@ -29,11 +29,12 @@ public class UserDaoImp implements UserDao {
 			connexion = daoFactory.getConnection();
 			preparedStatement = connexion.prepareStatement("SELECT * FROM Player WHERE login = ? AND password = ?");
 			preparedStatement.setString(1, user.getLogin());
-            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setString(2, Hashing.hash(user.getPassword()));
 			
             rs = preparedStatement.executeQuery();
             
             while(rs.next()) {
+            	
             	String login = rs.getString("login");
             	String pseudo = rs.getString("pseudo");
             	
