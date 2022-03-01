@@ -1,14 +1,12 @@
 package com.bomberman.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.bomberman.beans.Server;
-import com.bomberman.security.Hashing;
 
 public class ServerDaoImp implements ServerDao{
 	
@@ -35,18 +33,14 @@ public class ServerDaoImp implements ServerDao{
             	
             	Server server = new Server();
             	server.setId(rs.getInt("id"));
-            	server.setDate(rs.getDate("date"));
             	server.setIp(rs.getString("ip"));
             	server.setPort(rs.getInt("port"));
-            	server.setTimer(rs.getInt("timer"));
-            	System.out.println(server.getIp());
             	servers.add(server);
             }
             
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println(servers.toString());
 		return servers;
 	}
 

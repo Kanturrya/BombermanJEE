@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bomberman.dao.DaoFactory;
 import com.bomberman.dao.RankingDao;
-import com.bomberman.dao.UserDao;
 
 /**
  * Servlet implementation class Ranking
