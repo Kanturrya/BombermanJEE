@@ -49,7 +49,7 @@ public class UserDaoImp implements UserDao {
 
 
 	@Override
-	public boolean connexion(User user) {
+	public boolean connect(User user) {
 		Connection connexion = null;
 		ResultSet rs = null;
 		PreparedStatement preparedStatement = null;
@@ -72,7 +72,7 @@ public class UserDaoImp implements UserDao {
 	}
 
 	@Override
-	public void ajouter(User user) {
+	public void addUser(User user) {
 		Connection connexion = null;
 		PreparedStatement preparedStatement = null;
 		
@@ -93,7 +93,7 @@ public class UserDaoImp implements UserDao {
 	}
 
 	@Override
-	public ArrayList<User> allUser() {
+	public ArrayList<User> getAllUser() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -105,7 +105,7 @@ public class UserDaoImp implements UserDao {
 	}
 
 	@Override
-	public boolean changeMdp(User user) {
+	public boolean changePassword(User user) {
 		// TODO Auto-generated method stub
 		return false;
 	}

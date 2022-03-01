@@ -24,7 +24,7 @@ public class ConnectionForm {
 		user.setLogin(login);
 		user.setPassword(password);
 		
-		if(userDao.connexion(user)) {
+		if(userDao.connect(user)) {
 			return userDao.getInfo(user);
 		} else {
 			return null;

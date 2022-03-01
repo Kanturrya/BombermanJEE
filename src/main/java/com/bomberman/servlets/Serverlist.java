@@ -31,7 +31,7 @@ public class Serverlist extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("servers", serverDao.serverList());
+		request.setAttribute("servers", serverDao.getServerlist());
 		this.getServletContext().getRequestDispatcher("/WEB-INF/serverlist.jsp").forward(request, response);
 	}
 

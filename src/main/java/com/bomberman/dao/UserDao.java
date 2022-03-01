@@ -6,10 +6,10 @@ import com.bomberman.beans.User;
 
 public interface UserDao {
 	
-	void ajouter(User user);
-	ArrayList<User> allUser();
+	void addUser(User user);
+	ArrayList<User> getAllUser();
 	User getInfo(User user);
-	boolean connexion(User user);
+	boolean connect(User user);
 	boolean changePseudo(User user);
-	boolean changeMdp(User user);
+	boolean changePassword(User user);
 }

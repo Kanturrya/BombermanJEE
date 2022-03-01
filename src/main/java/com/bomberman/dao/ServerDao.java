@@ -6,5 +6,5 @@ import com.bomberman.beans.Server;
 
 public interface ServerDao {
 	
-	ArrayList<Server> serverList();
+	ArrayList<Server> getServerlist();
 }

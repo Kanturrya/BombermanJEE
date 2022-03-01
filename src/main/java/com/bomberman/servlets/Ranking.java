@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bomberman.dao.DaoFactory;
-import com.bomberman.dao.GameDao;
+import com.bomberman.dao.RankingDao;
 import com.bomberman.dao.UserDao;
 
 /**
@@ -17,7 +17,7 @@ import com.bomberman.dao.UserDao;
 @WebServlet("/Ranking")
 public class Ranking extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private GameDao gameDao;
+	private RankingDao gameDao;
        
     /**
      * @see HttpServlet#HttpServlet()

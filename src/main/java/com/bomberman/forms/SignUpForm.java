@@ -27,7 +27,7 @@ public class SignUpForm {
 			user.setPassword(password);
 			user.setPseudo(pseudo);
 			
-			userDao.ajouter(user);
+			userDao.addUser(user);
 			
 			return user;
 		}

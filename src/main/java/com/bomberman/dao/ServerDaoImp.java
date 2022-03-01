@@ -19,10 +19,8 @@ public class ServerDaoImp implements ServerDao{
 	}
 	
 	@Override
-	public ArrayList<Server> serverList() {
-		
+	public ArrayList<Server> getServerlist() {
 		ArrayList<Server> servers = new ArrayList<>();
-		
 		
 		Connection connexion = null;
 		ResultSet rs = null;
