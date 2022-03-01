@@ -43,7 +43,7 @@ public class Register extends HttpServlet {
 		
 		HttpSession session = request.getSession();
         session.setAttribute("user", user);
-		this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
+        response.sendRedirect("index");
 	}
 
 }

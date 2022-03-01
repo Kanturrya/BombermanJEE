@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.bomberman.beans.User;
@@ -51,8 +50,6 @@ public class UserDaoImp implements UserDao {
 
 	@Override
 	public boolean connexion(User user) {
-		boolean status = false;
-		
 		Connection connexion = null;
 		ResultSet rs = null;
 		PreparedStatement preparedStatement = null;

@@ -21,7 +21,7 @@
 				<input type="password" name="password" id="password">
 			</p>
 			
-			<input type="submit"/>
+			<input type="submit" value="Confirmer"/>
 		</form>
 		
 		<p> <a href="/BombermanJEE/register">S'enregistrer</a> </p>

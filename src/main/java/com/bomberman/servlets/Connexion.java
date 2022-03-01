@@ -40,14 +40,13 @@ public class Connexion extends HttpServlet {
 		User user = form.verifyId(request, userDao);
 			
 		if(user == null) {
-			HttpSession session = request.getSession();
 			request.setAttribute("status", "Connexion échouée!");
 			request.setAttribute("user", user);		
 			this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
 		} else {
 			HttpSession session = request.getSession();
             session.setAttribute("user", user);
-			this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
+            response.sendRedirect("index");
 		}
 		
 	}
