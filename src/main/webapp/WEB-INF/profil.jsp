@@ -9,6 +9,10 @@
 	</head>
 	<body>
 		<%@ include file="menu.jsp" %>
-		<p>Profil</p>
+		
+		<div class="main">
+			<h1>Profil</h1>
+		
+		</div>
 	</body>
 </html>

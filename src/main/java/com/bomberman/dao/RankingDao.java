@@ -2,9 +2,8 @@ package com.bomberman.dao;
 
 import java.util.ArrayList;
 
-import com.bomberman.beans.Game;
-import com.bomberman.beans.User;
+import com.bomberman.beans.Rank;
 
 public interface RankingDao {
-	ArrayList<String> getRanking();
+	ArrayList<Rank> getRanking();
 }

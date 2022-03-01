@@ -17,7 +17,7 @@ import com.bomberman.dao.UserDao;
 @WebServlet("/Ranking")
 public class Ranking extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private RankingDao gameDao;
+	private RankingDao rankingDao;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -29,11 +29,11 @@ public class Ranking extends HttpServlet {
 
     public void init() throws ServletException{
     	DaoFactory daoFactory = DaoFactory.getInstance();
-    	this.gameDao = daoFactory.getGameDao();
+    	this.rankingDao = daoFactory.getRankingDao();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(gameDao.getRanking());
+		request.setAttribute("rank", rankingDao.getRanking());
 		this.getServletContext().getRequestDispatcher("/WEB-INF/classement.jsp").forward(request, response);
 	}
 

@@ -7,23 +7,31 @@
 	</head>
 	<body>
 		<%@ include file="menu.jsp" %>
-		<p>Connexion</p>
-		<p><c:out value="${ status }"/></p>
-		<form method="post" action="">
-
-			<p>
-				<label for="login">Login:</label>
-				<input type="text" name="login" id="login"/>
-			</p>
-			
-			<p>
-				<label for="password">Mot de passe:</label>
-				<input type="password" name="password" id="password">
-			</p>
-			
-			<input type="submit" value="Confirmer"/>
-		</form>
 		
-		<p> <a href="/BombermanJEE/register">S'enregistrer</a> </p>
+		<div class="main">
+			<h1>Connexion</h1>
+			
+			<div class="form--container">
+				<c:if test="${ !empty status }">
+					<p><c:out value="${ status }"/></p>
+				</c:if>
+				
+				<form class="form" method="post" action="">
+					<p>
+						<label for="login">Login:</label>
+						<input type="text" name="login" id="login"/>
+					</p>
+					
+					<p>
+						<label for="password">Mot de passe:</label>
+						<input type="password" name="password" id="password">
+					</p>
+					
+					<input class="form--submit" type="submit" value="Valider"/>
+				</form>
+				
+				<p>Pas de compte? <a href="/BombermanJEE/register">S'enregistrer.</a></p>
+			</div>
+		</div>
 	</body>
 </html>

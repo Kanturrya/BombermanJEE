@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.bomberman.beans.Game;
+import com.bomberman.beans.Rank;
 
 public class RankingDaoImp implements RankingDao{
 	
@@ -17,23 +17,26 @@ public class RankingDaoImp implements RankingDao{
 	}
 
 	@Override
-	public ArrayList<String> getRanking() {
+	public ArrayList<Rank> getRanking() {
 		Connection connexion = null;
 		ResultSet rs = null;
 		PreparedStatement preparedStatement = null;
-		ArrayList<String> users = new ArrayList<>();
+		ArrayList<Rank> ranks = new ArrayList<>();
 	
 		try {
 			connexion = daoFactory.getConnection();
-			preparedStatement = connexion.prepareStatement("SELECT Player.id AS Player_ID,pseudo,COUNT(*) AS wonGames "
+			preparedStatement = connexion.prepareStatement("SELECT pseudo,COUNT(*) AS wonGames "
 					+ "FROM Player INNER JOIN GameWon ON Player.id = GameWon.Player_ID "
 					+ "GROUP BY Player_ID ORDER BY COUNT(*) DESC;");
             rs = preparedStatement.executeQuery();
             
             while(rs.next()) {
-            	users.add(rs.getInt("Player_ID")+";"+rs.getString("pseudo")+";"+rs.getInt("wonGames"));
+            	Rank rank = new Rank();
+            	rank.setPseudo(rs.getString("pseudo"));
+            	rank.setNbGameWon(rs.getInt("wonGames"));
+            	ranks.add(rank);
             }
-            return users;
+            return ranks;
 			
 		} catch(SQLException e) {
 			e.printStackTrace();

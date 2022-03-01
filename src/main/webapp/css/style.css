@@ -2,28 +2,116 @@
 
 body{
 	margin: 0;
-	font-family:Calibri;
+	width:100%;
+	font-family: "Open Sans", sans-serif;
+	overflow-x: hidden;
+}
+
+/* HEADER */
+
+.header--container{
+	display:flex;
+	width:100%;
+	justify-content:center;
+	flex-direction:column;
+	background-color:#48bf53;
+	text-align:center;
+}
+
+.header--container h1{
+	color:#02300e;
+	letter-spacing: 2px;
+	font-weight: bold;
 }
 
 .menu--container{
-	color:red;
-	font-size:1.3em;
+	font-size:1.2em;
 	display:flex;
 	justify-content:center;
-	background-color:gray;
 	border-collapse: collapse;
+	background-color:#11823b;
 }
 
 .menu--container a{
 	color:white;
 	text-decoration: None;
 	width:10%;
-	padding:10px 0;
+	padding:20px 10px;
 	text-align: center;
-	border: solid lightgrey;
-	border-width: 0px 1px 0px 1px;
 }
 
 .menu--container a:hover{
-	color:blue;
+	color: #004d25;
+	transition: all .2s ease-out;
+	background-color:#91f086;
 }
+
+/* GLOBAL */
+
+.main{
+	margin:50px 100px;
+}
+
+.main h1{
+	text-align: center;
+	font-size: 1.5em;
+}
+
+/* PAGE CLASSEMENT */
+
+.ranking--container{
+	display:flex;
+	width:100%;
+	justify-content: center;
+	margin: 20px 0;
+}
+
+.ranking--table{
+	width:50%;
+	border-collapse: collapse;
+}
+
+.ranking--table td, .ranking--table th {
+	width:50%;
+	border:1px solid black;
+	padding: 10px;
+}
+
+.ranking--table th{
+	background-color: #91f086;
+}
+
+/* PAGE CONNEXION */
+.form--container{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.form{
+	display:flex;
+	flex-direction: column;
+	padding: 25px;
+	margin: 10px 0;
+	border:1px solid black;
+}
+
+.form p {
+	display:flex;
+	flex-direction: row;
+}
+
+.form p * {
+	display:block;
+	width: 50%;
+}
+
+.form .form--submit{
+	width:100px;
+	border:1px solid black;
+	background-color: #91f086;
+	padding:5px;
+	cursor: pointer;
+}
+
