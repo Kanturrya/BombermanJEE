@@ -67,6 +67,42 @@
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>APIUserLogin</servlet-name>
+    <servlet-class>com.bomberman.api.APIUserLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>APIUserLogin</servlet-name>
+    <url-pattern>/user/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>APIServers</servlet-name>
+    <servlet-class>com.bomberman.api.APIServers</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>APIServers</servlet-name>
+    <url-pattern>/servers/action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>APIGameWon</servlet-name>
+    <servlet-class>com.bomberman.api.APIGameWon</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>APIGameWon</servlet-name>
+    <url-pattern>/game/win</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>APIGamePlayed</servlet-name>
+    <servlet-class>com.bomberman.api.APIGamePlayed</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>APIGamePlayed</servlet-name>
+    <url-pattern>/game/played</url-pattern>
+  </servlet-mapping>
+  
   <mime-mapping>        
   		<extension>css</extension>
         <mime-type>text/css</mime-type>
