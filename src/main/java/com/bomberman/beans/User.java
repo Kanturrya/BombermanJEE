@@ -4,7 +4,14 @@ public class User {
 	private String login;
 	private String password;
 	private String pseudo;
+	private String id;
 	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getLogin() {
 		return login;
 	}

@@ -12,4 +12,5 @@ public interface UserDao {
 	boolean connect(User user);
 	boolean changePseudo(User user);
 	boolean changePassword(User user);
+	boolean exist(int id);
 }

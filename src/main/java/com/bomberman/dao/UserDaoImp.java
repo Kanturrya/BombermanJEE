@@ -36,9 +36,11 @@ public class UserDaoImp implements UserDao {
             	
             	String login = rs.getString("login");
             	String pseudo = rs.getString("pseudo");
+            	String id = rs.getString("id");
             	
             	user.setLogin(login);
             	user.setPseudo(pseudo);
+            	user.setId(id);
             }
             
 		} catch(SQLException e) {
@@ -107,6 +109,28 @@ public class UserDaoImp implements UserDao {
 	@Override
 	public boolean changePassword(User user) {
 		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean exist(int id) {
+		Connection connexion = null;
+		ResultSet rs = null;
+		PreparedStatement preparedStatement = null;
+	
+		try {
+			connexion = daoFactory.getConnection();
+			preparedStatement = connexion.prepareStatement("SELECT * FROM Player WHERE id = ?");
+			preparedStatement.setInt(1, id);
+			
+            rs = preparedStatement.executeQuery();
+			if(rs.next()) {
+				return true;
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 

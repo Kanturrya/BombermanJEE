@@ -3,6 +3,7 @@ package com.bomberman.forms;
 import javax.servlet.http.HttpServletRequest;
 
 import com.bomberman.beans.User;
+import com.bomberman.dao.DaoFactory;
 import com.bomberman.dao.UserDao;
 
 public class ConnectionForm {
@@ -15,7 +16,7 @@ public class ConnectionForm {
 		this.isOk = false;
 	}
 	
-	public User verifyId(HttpServletRequest req, UserDao userDao) {
+	public User verifyId(HttpServletRequest req) {
 		String login = req.getParameter("login");
 		String password = req.getParameter("password");
 		
@@ -23,6 +24,9 @@ public class ConnectionForm {
 		
 		user.setLogin(login);
 		user.setPassword(password);
+		
+		DaoFactory daoFactory = DaoFactory.getInstance();
+		UserDao userDao = daoFactory.getUserDao();
 		
 		if(userDao.connect(user)) {
 			return userDao.getInfo(user);

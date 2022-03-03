@@ -38,7 +38,7 @@ public class Connexion extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ConnectionForm form = new ConnectionForm();
 		
-		User user = form.verifyId(request, userDao);
+		User user = form.verifyId(request);
 			
 		if(user == null) {
 			request.setAttribute("status", "Connexion échouée!");

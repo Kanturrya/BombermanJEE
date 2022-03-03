@@ -23,7 +23,7 @@ public class DaoFactory {
 			
 		}
 		
-		DaoFactory instance = new DaoFactory("jdbc:mariadb://localhost:3306/Bomberman", "etud", "root");
+		DaoFactory instance = new DaoFactory("jdbc:mariadb://localhost:3306/Bomberman", "etud", "");
 		
 		return instance;
 	}
@@ -36,12 +36,19 @@ public class DaoFactory {
 		return new UserDaoImp(this);
 	}
 	
-
 	public RankingDao getRankingDao() {
 		return new RankingDaoImp(this);
 	}
 
 	public ServerDao getServerDao(){
 		return new ServerDaoImp(this);
+	}
+	
+	public GamePlayedDao getGamePlayedDao() {
+		return new GamePlayedDaoImp(this);
+	}
+	
+	public GameWonDao getGameWonDao(){
+		return new GameWonDaoImp(this);
 	}
 }
