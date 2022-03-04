@@ -77,31 +77,32 @@
   </servlet-mapping>
   
   <servlet>
-    <servlet-name>APIServers</servlet-name>
-    <servlet-class>com.bomberman.api.APIServers</servlet-class>
+    <servlet-name>APIUserGamePlayed</servlet-name>
+    <servlet-class>com.bomberman.api.APIUserGamePlayed</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>APIServers</servlet-name>
-    <url-pattern>/servers/action</url-pattern>
+    <servlet-name>APIUserGamePlayed</servlet-name>
+    <url-pattern>/user/gameplayed</url-pattern>
   </servlet-mapping>
   
   <servlet>
-    <servlet-name>APIGameWon</servlet-name>
-    <servlet-class>com.bomberman.api.APIGameWon</servlet-class>
+    <servlet-name>APIUserGameWon</servlet-name>
+    <servlet-class>com.bomberman.api.APIUserGameWon</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>APIGameWon</servlet-name>
-    <url-pattern>/game/win</url-pattern>
+    <servlet-name>APIUserGameWon</servlet-name>
+    <url-pattern>/user/gamewon</url-pattern>
   </servlet-mapping>
   
   <servlet>
-    <servlet-name>APIGamePlayed</servlet-name>
-    <servlet-class>com.bomberman.api.APIGamePlayed</servlet-class>
+    <servlet-name>APIServer</servlet-name>
+    <servlet-class>com.bomberman.api.APIServer</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>APIGamePlayed</servlet-name>
-    <url-pattern>/game/played</url-pattern>
+    <servlet-name>APIServer</servlet-name>
+    <url-pattern>/server</url-pattern>
   </servlet-mapping>
+
   
   <mime-mapping>        
   		<extension>css</extension>

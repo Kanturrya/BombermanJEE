@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import com.bomberman.dao.RankingDao;
+import com.bomberman.dao.ServerDao;
+
 public class DaoFactory {
 	
 	private String url;
@@ -23,7 +26,7 @@ public class DaoFactory {
 			
 		}
 		
-		DaoFactory instance = new DaoFactory("jdbc:mariadb://localhost:3306/Bomberman", "etud", "");
+		DaoFactory instance = new DaoFactory("jdbc:mariadb://localhost:3306/Bomberman", "etud", "root");
 		
 		return instance;
 	}
@@ -42,13 +45,5 @@ public class DaoFactory {
 
 	public ServerDao getServerDao(){
 		return new ServerDaoImp(this);
-	}
-	
-	public GamePlayedDao getGamePlayedDao() {
-		return new GamePlayedDaoImp(this);
-	}
-	
-	public GameWonDao getGameWonDao(){
-		return new GameWonDaoImp(this);
 	}
 }

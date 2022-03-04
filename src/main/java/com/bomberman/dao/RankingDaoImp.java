@@ -25,9 +25,9 @@ public class RankingDaoImp implements RankingDao{
 	
 		try {
 			connexion = daoFactory.getConnection();
-			preparedStatement = connexion.prepareStatement("SELECT pseudo,COUNT(*) AS wonGames "
-					+ "FROM Player INNER JOIN GameWon ON Player.id = GameWon.Player_ID "
-					+ "GROUP BY Player_ID ORDER BY COUNT(*) DESC;");
+			preparedStatement = connexion.prepareStatement("SELECT pseudo, game_won AS wonGames "
+					+ "FROM Player "
+					+ "ORDER BY wonGames DESC;");
             rs = preparedStatement.executeQuery();
             
             while(rs.next()) {

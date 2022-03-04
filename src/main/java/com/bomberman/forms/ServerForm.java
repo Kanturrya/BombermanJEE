@@ -10,7 +10,6 @@ import com.bomberman.dao.ServerDao;
 public class ServerForm {
 	
 	public Server verifyServer(HttpServletRequest req) {
-		
 		Server server = new Server();
 		
 		if(req.getParameter("ip") == null || req.getParameter("port") == null) {

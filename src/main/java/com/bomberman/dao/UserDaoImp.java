@@ -95,12 +95,6 @@ public class UserDaoImp implements UserDao {
 	}
 
 	@Override
-	public ArrayList<User> getAllUser() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public boolean changePseudo(User user) {
 		// TODO Auto-generated method stub
 		return false;
@@ -132,6 +126,38 @@ public class UserDaoImp implements UserDao {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+
+	@Override
+	public void addGamePlayed(int id) {
+		Connection connexion = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connexion = daoFactory.getConnection();
+			preparedStatement = connexion.prepareStatement("UPDATE Player SET game_played = game_played + 1 WHERE id=?;");
+			preparedStatement.setInt(1, id);
+			preparedStatement.executeQuery();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	@Override
+	public void addGameWon(int id) {
+		Connection connexion = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connexion = daoFactory.getConnection();
+			preparedStatement = connexion.prepareStatement("UPDATE Player SET game_won = game_won + 1 WHERE id=?;");
+			preparedStatement.setInt(1, id);
+			preparedStatement.executeQuery();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

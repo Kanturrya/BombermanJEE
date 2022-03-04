@@ -16,11 +16,11 @@ import com.bomberman.forms.ServerForm;
 
 
 @WebServlet("/APIServersAdd")
-public class APIServers extends HttpServlet {
+public class APIServer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public APIServers() {
+    public APIServer() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,16 +29,11 @@ public class APIServers extends HttpServlet {
 		ServerForm serverForm = new ServerForm();
 
 		Server server = serverForm.verifyServer(request);
-		
 		PrintWriter outpout = new PrintWriter(response.getOutputStream(), true);
 		
 		if(server != null) {
 			outpout.println(server.getId());
 		}
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 	}
 	
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
