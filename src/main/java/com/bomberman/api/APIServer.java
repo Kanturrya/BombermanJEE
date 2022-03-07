@@ -29,23 +29,16 @@ public class APIServer extends HttpServlet {
 		ServerForm serverForm = new ServerForm();
 
 		Server server = serverForm.verifyServer(request);
-		PrintWriter outpout = new PrintWriter(response.getOutputStream(), true);
+		PrintWriter output = new PrintWriter(response.getOutputStream(), true);
 		
 		if(server != null) {
-			outpout.println(server.getId());
+			output.println(server.getId());
 		}
 	}
 	
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServerForm serverForm = new ServerForm();
-		
-		System.out.println(request.getParameter("id"));
-		
-		boolean isOk = serverForm.deleteServer(request);
-		
-		if(isOk) {
-			System.out.println("Deleted");;
-		}
+		serverForm.deleteServer(request);
 	}
 
 }

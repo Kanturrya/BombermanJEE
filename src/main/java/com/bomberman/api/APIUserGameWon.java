@@ -30,9 +30,15 @@ public class APIUserGameWon extends HttpServlet{
 		BufferedReader br = new BufferedReader(reader);
 		
 		String data = br.readLine();
-		String[] parameter = data.split("=");
+		String[] parameters = data.split("&");
 		
-		if(!parameter[0].equals("id")) {
+		String[] parameter1 = parameters[0].split("=");
+		String[] parameter2 = parameters[1].split("=");
+		
+		if(!parameter1[0].equals("id")) {
+			writer.println("null");
+			return;
+		} else if(!parameter2[0].equals("token") || !parameter2[1].equals("8e79d143-8cdf-4abf-96e8-93f0e172a12b")) {
 			writer.println("null");
 			return;
 		}
@@ -40,7 +46,7 @@ public class APIUserGameWon extends HttpServlet{
 		DaoFactory daoFactory = DaoFactory.getInstance();
 		UserDao userDao = daoFactory.getUserDao();
 		
-		userDao.addGameWon(Integer.parseInt(parameter[1]));
+		userDao.addGameWon(Integer.parseInt(parameter1[1]));
 	}
 
 }

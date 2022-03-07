@@ -12,7 +12,7 @@ public class ServerForm {
 	public Server verifyServer(HttpServletRequest req) {
 		Server server = new Server();
 		
-		if(req.getParameter("ip") == null || req.getParameter("port") == null) {
+		if(req.getParameter("ip") == null || req.getParameter("port") == null || !req.getParameter("token").equals("791cdc4f-1812-4078-a265-4feed8f2af2b")) {
 			return null;
 		}
 		
@@ -32,7 +32,7 @@ public class ServerForm {
 		
 		Server server = new Server();
 		
-		if(req.getParameter("id") == null) {
+		if(req.getParameter("id") == null || !req.getParameter("token").equals("047ff0b3-d5cf-4549-b46a-1f876984c93d")) {
 			return false;
 		}
 		
