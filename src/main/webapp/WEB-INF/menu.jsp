@@ -1,5 +1,8 @@
 <div class="header--container">
-	<h1>Bomberman</h1>
+	<div style="cursor: pointer;" onclick="window.location='/BombermanJEE/index'" class="title--container">
+		<img class="logo" src="images/bomberman_logo.png" />
+		<p class="title" >Bomberman</p>
+	</div>
 	<div class="menu--container">
 		<a href="/BombermanJEE/index">Accueil</a>
 		<a href="/BombermanJEE/ranking">Classement</a>

@@ -14,14 +14,29 @@ body{
 	width:100%;
 	justify-content:center;
 	flex-direction:column;
-	background-color:#48bf53;
+	background-color:#edf2fb;
 	text-align:center;
 }
 
-.header--container h1{
-	color:#02300e;
+.title--container{
+	margin:15px 0 5px 0;
+	display:flex;
+	width:100%;
+	flex-direction:row;
+	justify-content:center;
+	align-items:stretch;
+}
+
+.title--container .title{
+	font-size:2em;
 	letter-spacing: 2px;
 	font-weight: bold;
+}
+
+.title--container .logo{
+	width:90px;
+	height:90px;
+	margin:0 10px;
 }
 
 .menu--container{
@@ -29,7 +44,7 @@ body{
 	display:flex;
 	justify-content:center;
 	border-collapse: collapse;
-	background-color:#11823b;
+	background-color:#0077b6;
 }
 
 .menu--container a{
@@ -41,9 +56,9 @@ body{
 }
 
 .menu--container a:hover{
-	color: #004d25;
+	color: #0077b6;
 	transition: all .2s ease-out;
-	background-color:#91f086;
+	background-color:#90e0ef;
 }
 
 /* GLOBAL */
@@ -55,6 +70,30 @@ body{
 .main h1{
 	text-align: center;
 	font-size: 1.5em;
+}
+
+
+/* ACCUEIL */
+
+.accueil--container {
+	width: 100%;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.presentation{
+	width:50%;
+	display:flex;
+	flex-direction: column;
+	background-color:#edf2fb;
+	border-radius:20px;
+}
+
+.presentation p{
+	margin:5px;
+	padding:20px;
+	text-align: justify;
 }
 
 /* PAGE CLASSEMENT & SERVEURS */
@@ -78,7 +117,7 @@ body{
 }
 
 .table th{
-	background-color: #91f086;
+	background-color: #90e0ef;
 }
 
 /* PAGE CONNEXION & INSCRIPTION*/
@@ -111,8 +150,24 @@ body{
 .form .form--submit{
 	width:100px;
 	border:1px solid black;
-	background-color: #91f086;
+	background-color: #90e0ef;
 	padding:5px;
 	cursor: pointer;
+}
+
+/* FOOTER */
+
+.footer--container{
+	position: absolute;
+	opacity:0.8;
+	bottom:0px;
+	width:100%;
+	background-color:black;
+}
+
+.footer--container p{
+	text-align:center;
+	color:white;
+	opacity:1;
 }
 

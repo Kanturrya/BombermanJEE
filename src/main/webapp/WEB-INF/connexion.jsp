@@ -33,5 +33,7 @@
 				<p>Pas de compte? <a href="/BombermanJEE/register">S'enregistrer.</a></p>
 			</div>
 		</div>
+		
+		<%@ include file="footer.jsp" %>
 	</body>
 </html>

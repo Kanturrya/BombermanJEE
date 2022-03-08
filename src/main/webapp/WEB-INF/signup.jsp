@@ -33,6 +33,8 @@
 				
 				<p>Déjà un compte? <a href="/BombermanJEE/connexion">Se connecter</a></p>
 			</div>
-		</div>		
+		</div>
+		
+		<%@ include file="footer.jsp" %>		
 	</body>
 </html>

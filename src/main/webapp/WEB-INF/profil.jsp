@@ -14,5 +14,7 @@
 			<h1>Profil</h1>
 		
 		</div>
+		
+		<%@ include file="footer.jsp" %>
 	</body>
 </html>

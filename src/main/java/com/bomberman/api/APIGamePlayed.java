@@ -20,10 +20,6 @@ public class APIGamePlayed extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		GamePlayedForm gamePlayedForm = new GamePlayedForm();
 
