@@ -103,7 +103,33 @@
     <url-pattern>/server</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>APIGameWon</servlet-name>
+    <servlet-class>com.bomberman.api.APIGameWon</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>APIGameWon</servlet-name>
+    <url-pattern>/game/won</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>APIGamePlayed</servlet-name>
+    <servlet-class>com.bomberman.api.APIGamePlayed</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>APIGamePlayed</servlet-name>
+    <url-pattern>/game/played</url-pattern>
+  </servlet-mapping>
   
+  <servlet>
+    <servlet-name>APIGame</servlet-name>
+    <servlet-class>com.bomberman.api.APIGame</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>APIGame</servlet-name>
+    <url-pattern>/game/add</url-pattern>
+  </servlet-mapping>
+
   <mime-mapping>        
   		<extension>css</extension>
         <mime-type>text/css</mime-type>

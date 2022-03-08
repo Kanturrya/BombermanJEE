@@ -10,4 +10,7 @@ public interface UserDao {
 	boolean connect(User user);
 	boolean changePseudo(int id, String pseudo);
 	boolean changePassword(int id, String password);
+	boolean existLogin(User user);
+	void addGamePlayed(int id);
+	void addGameWon(int id);
 }

@@ -22,7 +22,7 @@ public class DaoFactory {
 	public static DaoFactory getInstance() {
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
-		}catch(ClassNotFoundException e) {
+		} catch(ClassNotFoundException e) {
 			
 		}
 		
@@ -52,5 +52,9 @@ public class DaoFactory {
 
 	public GameWonDao getGameWonDao(){
 		return new GameWonDaoImp(this);
+	}
+	
+	public GameDao getGameDao(){
+		return new GameDaoImp(this);
 	}
 }
