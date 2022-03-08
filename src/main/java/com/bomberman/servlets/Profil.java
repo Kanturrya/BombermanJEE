@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Profil
@@ -24,7 +25,16 @@ public class Profil extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/profil.jsp").forward(request, response);
+		HttpSession session = request.getSession();
+        
+		if(session.getAttribute("user") != null) {
+			request.setAttribute("played", 0);
+			request.setAttribute("won", 0);
+			request.setAttribute("ratio", "0%");
+			this.getServletContext().getRequestDispatcher("/WEB-INF/profil.jsp").forward(request, response);
+		} else {
+			response.sendRedirect("index");
+		}
 	}
 
 
