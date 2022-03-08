@@ -83,10 +83,9 @@ public class UserDaoImp implements UserDao {
 			preparedStatement = connexion.prepareStatement("INSERT INTO Player(login, password, pseudo) VALUES(?,?,?);");
 			
 			preparedStatement.setString(1, user.getLogin());
-			
 			preparedStatement.setString(2, user.getPassword());
-			
 			preparedStatement.setString(3, user.getPseudo());
+			
 			preparedStatement.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -106,58 +105,10 @@ public class UserDaoImp implements UserDao {
 		return false;
 	}
 
-
 	@Override
 	public boolean exist(int id) {
-		Connection connexion = null;
-		ResultSet rs = null;
-		PreparedStatement preparedStatement = null;
-	
-		try {
-			connexion = daoFactory.getConnection();
-			preparedStatement = connexion.prepareStatement("SELECT * FROM Player WHERE id = ?");
-			preparedStatement.setInt(1, id);
-			
-            rs = preparedStatement.executeQuery();
-			if(rs.next()) {
-				return true;
-			}
-		} catch(SQLException e) {
-			e.printStackTrace();
-		}
+		// TODO Auto-generated method stub
 		return false;
-	}
-
-
-	@Override
-	public void addGamePlayed(int id) {
-		Connection connexion = null;
-		PreparedStatement preparedStatement = null;
-		
-		try {
-			connexion = daoFactory.getConnection();
-			preparedStatement = connexion.prepareStatement("UPDATE Player SET game_played = game_played + 1 WHERE id=?;");
-			preparedStatement.setInt(1, id);
-			preparedStatement.executeQuery();
-		} catch(SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-
-	@Override
-	public void addGameWon(int id) {
-		Connection connexion = null;
-		PreparedStatement preparedStatement = null;
-		
-		try {
-			connexion = daoFactory.getConnection();
-			preparedStatement = connexion.prepareStatement("UPDATE Player SET game_won = game_won + 1 WHERE id=?;");
-			preparedStatement.setInt(1, id);
-			preparedStatement.executeQuery();
-		} catch(SQLException e) {
-			e.printStackTrace();
-		}
 	}
 
 }

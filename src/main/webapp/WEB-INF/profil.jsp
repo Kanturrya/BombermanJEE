@@ -11,8 +11,26 @@
 		<%@ include file="menu.jsp" %>
 		
 		<div class="main">
-			<h1>Profil</h1>
+			<h1>Profil de <c:out value="${ user.pseudo }"/></h1>
 		
+			<div class="table--container">
+				<table class="table">
+					<tr>
+						<th>Nombre de parties jouées</th>
+						<th>Nombre de parties gagnées</th>
+						<th>Ratio</th>
+					</tr>
+					<tr>
+						<td><c:out value="${ played }"/></td>
+						<td><c:out value="${ won }"/></td>
+						<td><c:out value="${ ratio }"/></td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="data--container">
+				
+			</div>
 		</div>
 		
 		<%@ include file="footer.jsp" %>
