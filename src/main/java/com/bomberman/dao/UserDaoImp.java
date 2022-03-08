@@ -79,15 +79,18 @@ public class UserDaoImp implements UserDao {
 		PreparedStatement preparedStatement = null;
 		
 		try {
-			connexion = daoFactory.getConnection();
-			preparedStatement = connexion.prepareStatement("INSERT INTO Player(login, password, pseudo) VALUES(?,?,?);");
+			if(!this.existLogin(user)) {
+				connexion = daoFactory.getConnection();
+				preparedStatement = connexion.prepareStatement("INSERT INTO Player(login, password, pseudo) VALUES(?,?,?);");
+				
+				preparedStatement.setString(1, user.getLogin());
+				
+				preparedStatement.setString(2, user.getPassword());
+				
+				preparedStatement.setString(3, user.getPseudo());
+				preparedStatement.executeUpdate();
+			}
 			
-			preparedStatement.setString(1, user.getLogin());
-			
-			preparedStatement.setString(2, user.getPassword());
-			
-			preparedStatement.setString(3, user.getPseudo());
-			preparedStatement.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -158,6 +161,28 @@ public class UserDaoImp implements UserDao {
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+
+	@Override
+	public boolean existLogin(User user) {
+		Connection connexion = null;
+		ResultSet rs = null;
+		PreparedStatement preparedStatement = null;
+	
+		try {
+			connexion = daoFactory.getConnection();
+			preparedStatement = connexion.prepareStatement("SELECT * FROM Player WHERE login = ?");
+			preparedStatement.setString(1, user.getLogin());
+			
+            rs = preparedStatement.executeQuery();
+			if(rs.next()) {
+				return true;
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }
