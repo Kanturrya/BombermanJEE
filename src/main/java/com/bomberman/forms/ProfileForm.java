@@ -27,7 +27,6 @@ public class ProfileForm {
 		UserDao userDao = daoFactory.getUserDao();
 		
 		int id = user.getId();
-		new_password = Hashing.hash(new_password);
 		
 		if(!pseudo.isEmpty()) {
 			if(userDao.changePseudo(id, pseudo)) {
@@ -39,6 +38,7 @@ public class ProfileForm {
 		}
 		
 		if(!new_password.isEmpty()) {
+			new_password = Hashing.hash(new_password);
 			if(userDao.changePassword(id, new_password)) {
 				user.setPassword(new_password);
 				req.setAttribute("status2", "Votre mot de passe a bien été changé!");
