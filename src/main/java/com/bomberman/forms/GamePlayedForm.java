@@ -9,7 +9,6 @@ import com.bomberman.dao.GamePlayedDao;
 public class GamePlayedForm {
 
 	public boolean verifyServer(HttpServletRequest req) {
-
 		DaoFactory daoFactory = DaoFactory.getInstance();
 		GamePlayedDao gamePlayedDao = daoFactory.getGamePlayedDao();
 

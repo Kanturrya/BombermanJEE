@@ -28,8 +28,35 @@
 				</table>
 			</div>
 			
-			<div class="data--container">
-				
+			
+			
+			<div class="form--container">
+				<h1>Modifier ses informations</h1>
+				<form class="form" method="post" action="">
+					<p>
+						<label for="login">Pseudo:</label>
+						<input type="text" name="pseudo" id="pseudo"/>
+					</p>
+					
+					<p>
+						<label for="password">Nouveau mot de passe:</label>
+						<input type="password" name="new_password" id="new_password">
+					</p>
+					
+					<p>
+						<label for="password">Mot de passe actuel:</label>
+						<input type="password" name="cur_password" id="cur_password">
+					</p>
+					
+					<input class="form--submit" type="submit" value="Valider"/>
+					
+					<c:if test="${ !empty status1 }">
+						<p><c:out value="${ status1 }"/></p>
+					</c:if>
+					<c:if test="${ !empty status2 }">
+						<p><c:out value="${ status2 }"/></p>
+					</c:if>
+				</form>
 			</div>
 		</div>
 		

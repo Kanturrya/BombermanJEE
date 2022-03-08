@@ -15,12 +15,12 @@
 				<form class="form" method="post" action="">
 					<p>
 						<label for="login">Identifiant:</label>
-						<input type="text" name="login" id="login"/>
+						<input type="text" name="login" id="login" placeholder="Identifiant"/>
 					</p>
 					
 					<p>
 						<label for="pseudo">Pseudo:</label>
-						<input type="text" name="pseudo" id="pseudo"/>
+						<input type="text" name="pseudo" id="pseudo" placeholder="Pseudo"/>
 					</p>
 					
 					<p>

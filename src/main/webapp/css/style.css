@@ -140,11 +140,17 @@ body{
 .form p {
 	display:flex;
 	flex-direction: row;
+	align-items: baseline;
 }
 
 .form p * {
 	display:block;
-	width: 50%;
+	width: 70%;
+}
+
+.form p input {
+	margin-left: 15px;
+	padding:5px;
 }
 
 .form .form--submit{
@@ -157,7 +163,14 @@ body{
 
 /* PROFIL */
 
-
+.data--container{
+	margin-top:20px;
+	width:50%;
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+}
 
 /* FOOTER */
 

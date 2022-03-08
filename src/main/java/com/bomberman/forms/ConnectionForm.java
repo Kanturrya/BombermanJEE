@@ -5,9 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import com.bomberman.beans.User;
 import com.bomberman.dao.DaoFactory;
 import com.bomberman.dao.UserDao;
+import com.bomberman.security.Hashing;
 
 public class ConnectionForm {
-	
 	private String res;
 	private boolean isOk;
 	private User user;
@@ -23,7 +23,7 @@ public class ConnectionForm {
 		User user = new User();
 		
 		user.setLogin(login);
-		user.setPassword(password);
+		user.setPassword(Hashing.hash(password));
 		
 		DaoFactory daoFactory = DaoFactory.getInstance();
 		UserDao userDao = daoFactory.getUserDao();

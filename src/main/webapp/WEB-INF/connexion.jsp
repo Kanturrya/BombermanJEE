@@ -18,13 +18,13 @@
 				
 				<form class="form" method="post" action="">
 					<p>
-						<label for="login">Login:</label>
-						<input type="text" name="login" id="login"/>
+						<label for="login">Identifiant:</label>
+						<input type="text" name="login" id="login" placeholder="Identifiant"/>
 					</p>
 					
 					<p>
 						<label for="password">Mot de passe:</label>
-						<input type="password" name="password" id="password">
+						<input type="password" name="password" id="password" placeholder="Mot de passe">
 					</p>
 					
 					<input class="form--submit" type="submit" value="Valider"/>

@@ -28,7 +28,7 @@ public class UserDaoImp implements UserDao {
 			connexion = daoFactory.getConnection();
 			preparedStatement = connexion.prepareStatement("SELECT * FROM Player WHERE login = ? AND password = ?");
 			preparedStatement.setString(1, user.getLogin());
-            preparedStatement.setString(2, Hashing.hash(user.getPassword()));
+            preparedStatement.setString(2, user.getPassword());
 			
             rs = preparedStatement.executeQuery();
             
@@ -36,7 +36,7 @@ public class UserDaoImp implements UserDao {
             	
             	String login = rs.getString("login");
             	String pseudo = rs.getString("pseudo");
-            	String id = rs.getString("id");
+            	int id = Integer.parseInt(rs.getString("id"));
             	
             	user.setLogin(login);
             	user.setPseudo(pseudo);
@@ -64,7 +64,7 @@ public class UserDaoImp implements UserDao {
             rs = preparedStatement.executeQuery();
             while(rs.next()) {
 	            String passDB = rs.getString("password");
-				return Hashing.check(passDB, user.getPassword());  
+				return passDB.equals(user.getPassword());  
             }
 			
 		} catch(SQLException e) {
@@ -94,21 +94,63 @@ public class UserDaoImp implements UserDao {
 	}
 
 	@Override
-	public boolean changePseudo(User user) {
-		// TODO Auto-generated method stub
+	public boolean changePseudo(int id, String pseudo) {
+		Connection connexion = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connexion = daoFactory.getConnection();
+			preparedStatement = connexion.prepareStatement("UPDATE Player SET pseudo=? WHERE id=?");
+			preparedStatement.setString(1, pseudo);
+			preparedStatement.setInt(2, id);
+			
+			int res = preparedStatement.executeUpdate();
+			
+			return res == 1;
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
-	public boolean changePassword(User user) {
-		// TODO Auto-generated method stub
+	public boolean changePassword(int id, String password) {
+		Connection connexion = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connexion = daoFactory.getConnection();
+			preparedStatement = connexion.prepareStatement("UPDATE Player SET password=? WHERE id=?");
+			preparedStatement.setString(1, password);
+			preparedStatement.setInt(2, id);
+			
+			int res = preparedStatement.executeUpdate();
+			
+			return res == 1;
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
-	public boolean exist(int id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    public boolean exist(int id) {
+        Connection connexion = null;
+        ResultSet rs = null;
+        PreparedStatement preparedStatement = null;
 
+        try {
+            connexion = daoFactory.getConnection();
+            preparedStatement = connexion.prepareStatement("SELECT * FROM Player WHERE id = ?");
+            preparedStatement.setInt(1, id);
+
+            rs = preparedStatement.executeQuery();
+            if(rs.next()) {
+                return true;
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

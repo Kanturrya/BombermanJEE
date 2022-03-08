@@ -8,7 +8,6 @@ import com.bomberman.dao.GameWonDao;
 public class GameWonForm {
 
 	public boolean verifyServer(HttpServletRequest req) {
-
 		DaoFactory daoFactory = DaoFactory.getInstance();
 		GameWonDao gameWonDao = daoFactory.getGameWonDao();
 		

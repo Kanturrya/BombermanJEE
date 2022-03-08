@@ -4,12 +4,12 @@ public class User {
 	private String login;
 	private String password;
 	private String pseudo;
-	private String id;
+	private int id;
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getLogin() {

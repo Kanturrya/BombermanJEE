@@ -26,7 +26,7 @@ public class DaoFactory {
 			
 		}
 		
-		DaoFactory instance = new DaoFactory("jdbc:mariadb://localhost:3306/Bomberman", "etud", "");
+		DaoFactory instance = new DaoFactory("jdbc:mariadb://localhost:3306/Bomberman", "etud", "root");
 		
 		return instance;
 	}
