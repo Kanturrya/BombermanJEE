@@ -71,12 +71,13 @@ public class UserDaoImp implements UserDao {
 	}
 
 	@Override
-	public void addUser(User user) {
+	public boolean addUser(User user) {
 		Connection connexion = null;
 		PreparedStatement preparedStatement = null;
 		
 		try {
 			if(!this.existLogin(user)) {
+				System.out.println(user.getLogin());
 				connexion = daoFactory.getConnection();
 				preparedStatement = connexion.prepareStatement("INSERT INTO Player(login, password, pseudo) VALUES(?,?,?);");
 				
@@ -85,21 +86,18 @@ public class UserDaoImp implements UserDao {
 				preparedStatement.setString(2, user.getPassword());
 				
 				preparedStatement.setString(3, user.getPseudo());
-				preparedStatement.executeUpdate();
+				int x = preparedStatement.executeUpdate();
+				
+				if(x == 1) {
+					return true;
+				}
+				return false;
 			}
 			
-			connexion = daoFactory.getConnection();
-			preparedStatement = connexion.prepareStatement("INSERT INTO Player(login, password, pseudo) VALUES(?,?,?);");
-			
-			preparedStatement.setString(1, user.getLogin());
-			preparedStatement.setString(2, user.getPassword());
-			preparedStatement.setString(3, user.getPseudo());
-			
-			preparedStatement.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
-
+		return false;
 	}
 
 	@Override

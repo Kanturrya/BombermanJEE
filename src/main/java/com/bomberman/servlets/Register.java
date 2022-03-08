@@ -41,9 +41,15 @@ public class Register extends HttpServlet {
 		
 		User user = signupform.verifyData(request, userDao);
 		
-		HttpSession session = request.getSession();
-        session.setAttribute("user", user);
-        response.sendRedirect("index");
+		if(user == null) {
+			request.setAttribute("status", "Login déjà existant!");
+			request.setAttribute("user", user);		
+			this.getServletContext().getRequestDispatcher("/WEB-INF/signup.jsp").forward(request, response);
+		} else {
+			HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+            response.sendRedirect("index");
+		}
 	}
 
 }

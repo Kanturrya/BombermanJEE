@@ -4,7 +4,7 @@ import com.bomberman.beans.User;
 
 public interface UserDao {
 	
-	void addUser(User user);
+	boolean addUser(User user);
 	User getInfo(User user);
 	boolean exist(int id);
 	boolean connect(User user);

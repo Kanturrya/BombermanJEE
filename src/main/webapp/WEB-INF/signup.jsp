@@ -12,6 +12,9 @@
 			<h1>S'enregistrer</h1>
 	
 			<div class="form--container">
+				<c:if test="${ !empty status }">
+					<p><c:out value="${ status }"/></p>
+				</c:if>
 				<form class="form" method="post" action="">
 					<p>
 						<label for="login">Identifiant:</label>
