@@ -29,7 +29,7 @@ public class APIGame extends HttpServlet {
 		int id = gameForm.addGame(request);
 		PrintWriter output = new PrintWriter(response.getOutputStream(), true);
 		
-		if(id !=  0) {
+		if(id != 0) {
 			output.println(id);
 		}
 	}

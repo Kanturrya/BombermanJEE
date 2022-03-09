@@ -8,10 +8,9 @@ import com.bomberman.dao.GameDao;
 public class GameForm {
 	
 	public int addGame(HttpServletRequest req) {
-
 		DaoFactory daoFactory = DaoFactory.getInstance();
 		GameDao gameDao = daoFactory.getGameDao();
 		
-		return gameDao.addGame();
+		return gameDao.addGame(req.getParameter("map"));
 	}
 }

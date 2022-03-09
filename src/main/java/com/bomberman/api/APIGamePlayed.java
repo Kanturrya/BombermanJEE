@@ -22,12 +22,7 @@ public class APIGamePlayed extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		GamePlayedForm gamePlayedForm = new GamePlayedForm();
-
-		boolean isOk = gamePlayedForm.verifyServer(request);
-
-		if(isOk) {
-			System.out.println("GamePlayed added");;
-		}
+		gamePlayedForm.verifyServer(request);
 	}
 
 }

@@ -23,14 +23,8 @@ public class APIGameWon extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		GameWonForm gameWonForm = new GameWonForm();
-
-		boolean isOk = gameWonForm.verifyServer(request);
-
-		if(isOk) {
-			System.out.println("GameWon added");;
-		}
+		gameWonForm.verifyServer(request);
 	}
 
 }

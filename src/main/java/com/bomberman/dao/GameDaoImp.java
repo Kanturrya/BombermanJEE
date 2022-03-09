@@ -15,18 +15,20 @@ public class GameDaoImp implements GameDao{
 	}
 
 	@Override
-	public int addGame() {
-
+	public int addGame(String map) {
 		Connection connexion = null;
 		ResultSet rs = null;
+		PreparedStatement preparedStatement = null;
 		Statement statement = null;
 
 		try {
-			
 			connexion = daoFactory.getConnection();
+			preparedStatement = connexion.prepareStatement("INSERT INTO Game(map) VALUE(?);");
+			preparedStatement.setString(1, map);
+			preparedStatement.executeQuery();
+			
 			statement = connexion.createStatement();
-			statement.executeQuery("INSERT INTO Game() VALUE();");
-			rs = statement.executeQuery("SELECT DISTINCT LAST_INSERT_ID() FROM Game;");
+			rs = statement.executeQuery("SELECT DISTINCT LAST_INSERT_ID() FROM Game");
 
 			while(rs.next()) {
 				return rs.getInt("LAST_INSERT_ID()");
