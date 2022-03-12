@@ -212,4 +212,71 @@ public class UserDaoImp implements UserDao {
 		}
 		return false;
 	}
+
+
+	@Override
+	public int getGameWon(User user) {
+		
+		int cpt = 0;
+		
+		Connection connexion = null;
+		ResultSet rs = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+
+			UserDaoImp userDao = new UserDaoImp(daoFactory);
+
+			if(userDao.exist(user.getId())) {
+				connexion = daoFactory.getConnection();
+				preparedStatement = connexion.prepareStatement("SELECT COUNT(*) FROM GameWon WHERE Player_ID = ?");
+
+				preparedStatement.setInt(1, user.getId());
+
+				rs = preparedStatement.executeQuery();
+				
+				while(rs.next()) {
+					cpt = rs.getInt("COUNT(*)");
+				}
+				
+			}
+
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return cpt;
+	}
+
+
+	@Override
+	public int getGamePlayed(User user) {
+int cpt = 0;
+		
+		Connection connexion = null;
+		ResultSet rs = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+
+			UserDaoImp userDao = new UserDaoImp(daoFactory);
+
+			if(userDao.exist(user.getId())) {
+				connexion = daoFactory.getConnection();
+				preparedStatement = connexion.prepareStatement("SELECT COUNT(*) FROM GamePlayed WHERE Player_ID = ?");
+
+				preparedStatement.setInt(1, user.getId());
+
+				rs = preparedStatement.executeQuery();
+				
+				while(rs.next()) {
+					cpt = rs.getInt("COUNT(*)");
+				}
+				
+			}
+
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return cpt;
+	}
 }

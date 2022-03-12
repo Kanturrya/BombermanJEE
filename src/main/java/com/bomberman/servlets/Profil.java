@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.bomberman.beans.User;
+import com.bomberman.dao.DaoFactory;
+import com.bomberman.dao.UserDao;
 import com.bomberman.forms.ProfileForm;
 
 /**
@@ -17,18 +20,31 @@ import com.bomberman.forms.ProfileForm;
 public class Profil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+    private UserDao userDao;
+    
     public Profil() {
         super();
         // TODO Auto-generated constructor stub
     }
     
+    public void init() throws ServletException{
+    	DaoFactory daoFactory = DaoFactory.getInstance();
+    	this.userDao = daoFactory.getUserDao();
+    }
+    
     private void setAttributes(HttpServletRequest request) {
-    	request.setAttribute("played", 0);
-		request.setAttribute("won", 0);
-		request.setAttribute("ratio", "0%");
+    	HttpSession session = request.getSession();
+    	double ratio = 0.0;
+    	int played = userDao.getGamePlayed((User)session.getAttribute("user"));
+    	int won = userDao.getGameWon((User)session.getAttribute("user"));
+    	
+    	if(played != 0) {
+    		ratio = (double)won/played;
+    	}
+    	
+    	request.setAttribute("played", played);
+		request.setAttribute("won", won);
+		request.setAttribute("ratio", ratio*100);
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

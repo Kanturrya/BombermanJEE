@@ -13,4 +13,6 @@ public interface UserDao {
 	boolean existLogin(User user);
 	void addGamePlayed(int id);
 	void addGameWon(int id);
+	int getGameWon(User user);
+	int getGamePlayed(User user);
 }

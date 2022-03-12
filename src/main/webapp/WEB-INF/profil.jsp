@@ -23,7 +23,7 @@
 					<tr>
 						<td><c:out value="${ played }"/></td>
 						<td><c:out value="${ won }"/></td>
-						<td><c:out value="${ ratio }"/></td>
+						<td><c:out value="${ ratio }%"/></td>
 					</tr>
 				</table>
 			</div>
