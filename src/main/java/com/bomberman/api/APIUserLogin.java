@@ -21,6 +21,10 @@ public class APIUserLogin extends HttpServlet{
 		super();
 	}
 	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.sendRedirect(request.getContextPath() + "/index");
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter output = new PrintWriter(response.getOutputStream(), true);
 		

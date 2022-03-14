@@ -20,6 +20,10 @@ public class APIGamePlayed extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	response.sendRedirect(request.getContextPath() + "/index");
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("userid") == null || request.getParameter("gameid") == null || !request.getParameter("token").equals("132913b9-6b2e-44e0-8265-3562299e1518")) {

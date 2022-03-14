@@ -28,6 +28,7 @@ public class APIServer extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("ip") == null || request.getParameter("port") == null || !request.getParameter("token").equals("791cdc4f-1812-4078-a265-4feed8f2af2b")) {
+			response.sendRedirect(request.getContextPath() + "/index");
 			return;
 		}
 		

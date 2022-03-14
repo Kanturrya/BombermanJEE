@@ -21,7 +21,11 @@ public class APIGameWon extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	response.sendRedirect(request.getContextPath() + "/index");
+	}
+    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("userid") == null || request.getParameter("gameid") == null || !request.getParameter("token").equals("c479631b-e171-4cdc-bad0-e60b7c98b281")) {
 			return;
