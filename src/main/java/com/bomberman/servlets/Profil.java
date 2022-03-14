@@ -1,6 +1,8 @@
 package com.bomberman.servlets;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,9 +44,11 @@ public class Profil extends HttpServlet {
     		ratio = (double)won/played;
     	}
     	
+    	DecimalFormat df = new DecimalFormat("###.##");
+    	
     	request.setAttribute("played", played);
 		request.setAttribute("won", won);
-		request.setAttribute("ratio", ratio*100);
+		request.setAttribute("ratio", df.format(ratio*100));
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
